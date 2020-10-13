@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div id="currencyConverter" class="panel panel-default">
+    <div class="panel-heading">Currency Calculator</div>
+    <div class="panel-body">
+        <label>Convert The Currency</label>
+        <div class="input-group">
+            <input id="enteredValue" v-model="numberInput" />
+            <select name="currencyFrom" id="from" v-model="selectedFromCurrency">
+                <option v-for="item in supportedCurrencies" :value="item">{{item}}</option>
+            </select>
+            <select name="currencyTo" id="to" v-model="selectedToCurrency">
+                <option v-for="item in supportedCurrencies" :value="item">{{item}}</option>
+            </select>
+            <button class="btn btn-success" v-on:click="submit">Submit</button>
+        </div>
+        <label v-if="conversionAmount > 0">{{numberInput}} {{selectedFromCurrency}} = {{conversionAmount}} {{selectedToCurrency}}</label>
+    </div>
+</div>
+<script src="~/vue/dist/vue.js"></script>
+<script src="~/js/currencyconvert.js"></script>
