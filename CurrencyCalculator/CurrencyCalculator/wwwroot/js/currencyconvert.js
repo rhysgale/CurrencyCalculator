@@ -10,9 +10,7 @@
         conversionAmount: 0
     },
     mounted: function () {
-        currencies.forEach(function (item) {
-            supportedCurrencies.push(item);
-        });
+        this.supportedCurrencies = currencies;
     },
     methods: {
         submit: function () {
