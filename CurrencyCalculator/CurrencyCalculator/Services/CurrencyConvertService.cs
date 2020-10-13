@@ -1,17 +1,15 @@
-﻿using CurrencyCalculator.Models.Dto;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace CurrencyCalculator
 {
     public class CurrencyConvertService : ICurrencyConvertService
     {
-        public string GetCurrencies(string currencyCode)
+        public string GetCurrencyExchangeRates(string currencyCode)
         {
             var url = "https://api.exchangerate-api.com/v4/latest/";
 
@@ -26,6 +24,25 @@ namespace CurrencyCalculator
             }
 
             return jsonString;
+        }
+
+        public List<string> GetCurrencyList()
+        {
+            try
+            {
+                var currenciesJson = GetCurrencyExchangeRates("GBP");
+
+                dynamic data = JsonConvert.DeserializeObject(currenciesJson);
+
+                return ((Dictionary<string, decimal>)data).Select(x => x.Key).ToList();
+            }
+            catch (Exception e)
+            {
+                return new List<string>()
+                {
+                    "GBP", "USD", "EUR"
+                };
+            }
         }
     }
 }

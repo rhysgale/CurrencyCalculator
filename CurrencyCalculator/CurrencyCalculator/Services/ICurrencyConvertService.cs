@@ -1,7 +1,10 @@
-﻿namespace CurrencyCalculator
+﻿using System.Collections.Generic;
+
+namespace CurrencyCalculator
 {
     public interface ICurrencyConvertService
     {
-        string GetCurrencies(string currencyCode);
+        string GetCurrencyExchangeRates(string currencyCode);
+        List<string> GetCurrencyList();
     }
 }

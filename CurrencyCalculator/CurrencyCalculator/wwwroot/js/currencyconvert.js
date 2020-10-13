@@ -3,11 +3,16 @@
     data: {
         message: 'Hello Vue!',
         numberInput: 0,
-        supportedCurrencies: ["EUR", "USD", "GBP"],
+        supportedCurrencies: [],
         selectedFromCurrency: "GBP",
         selectedToCurrency: "USD",
         currencyModel: null,
         conversionAmount: 0
+    },
+    mounted: function () {
+        currencies.forEach(function (item) {
+            supportedCurrencies.push(item);
+        });
     },
     methods: {
         submit: function () {

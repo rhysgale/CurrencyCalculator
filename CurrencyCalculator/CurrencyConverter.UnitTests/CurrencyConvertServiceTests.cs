@@ -16,7 +16,7 @@ namespace CurrencyConverter.UnitTests
         [Test]
         public void CurrencyConvertService_ReturnsValidResponseForGetCurrencies()
         {
-            var retVal = _service.GetCurrencies("GBP");
+            var retVal = _service.GetCurrencyExchangeRates("GBP");
 
             Assert.IsNotNull(retVal);
         }

@@ -21,7 +21,7 @@ namespace CurrencyCalculator.Controllers.ApiController
         [HttpGet("GetCurrencyRates/{currencyCode}")]
         public string GetCurrencyRates(string currencyCode)
         {
-            return _service.GetCurrencies(currencyCode);
+            return _service.GetCurrencyExchangeRates(currencyCode);
         }
     }
 }
