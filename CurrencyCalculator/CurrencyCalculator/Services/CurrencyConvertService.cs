@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Routing;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,7 +35,11 @@ namespace CurrencyCalculator
 
                 dynamic data = JsonConvert.DeserializeObject(currenciesJson);
 
-                return ((Dictionary<string, decimal>)data).Select(x => x.Key).ToList();
+                var result = new RouteValueDictionary(data.rates);
+
+                throw new Exception("Ran of of time trying to work this out!");
+
+                return ((Dictionary<string, decimal>)data.rates).Select(x => x.Key).ToList();
             }
             catch (Exception e)
             {
