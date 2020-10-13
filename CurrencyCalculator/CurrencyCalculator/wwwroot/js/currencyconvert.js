@@ -4,8 +4,8 @@
         message: 'Hello Vue!',
         numberInput: 0,
         supportedCurrencies: ["EUR", "USD", "GBP"],
-        selectedFromCurrency: "",
-        selectedToCurrency: "",
+        selectedFromCurrency: "GBP",
+        selectedToCurrency: "USD",
         currencyModel: null,
         conversionAmount: 0
     },

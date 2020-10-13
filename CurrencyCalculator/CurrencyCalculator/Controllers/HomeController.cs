@@ -12,12 +12,10 @@ namespace CurrencyCalculator.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ICurrencyConvertService _service;
 
-        public HomeController(ILogger<HomeController> logger, ICurrencyConvertService service)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _service = service;
         }
 
         public IActionResult Index()

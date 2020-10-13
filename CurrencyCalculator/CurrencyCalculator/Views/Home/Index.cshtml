@@ -4,15 +4,16 @@
 
 
 <div id="currencyConverter" class="panel panel-default">
-    <div class="panel-heading">Currency Calculator</div>
+    <h1>Currency Calculator</h1>
     <div class="panel-body">
         <label>Convert The Currency</label>
+
         <div class="input-group">
-            <input id="enteredValue" v-model="numberInput" />
-            <select name="currencyFrom" id="from" v-model="selectedFromCurrency">
+            <input id="enteredValue" class="mr-2 form-control" v-model="numberInput" />
+            <select name="currencyFrom" id="from" v-model="selectedFromCurrency" class="mr-2 form-control">
                 <option v-for="item in supportedCurrencies" :value="item">{{item}}</option>
             </select>
-            <select name="currencyTo" id="to" v-model="selectedToCurrency">
+            <select name="currencyTo" id="to" v-model="selectedToCurrency" class="mr-2 form-control">
                 <option v-for="item in supportedCurrencies" :value="item">{{item}}</option>
             </select>
             <button class="btn btn-success" v-on:click="submit">Submit</button>
